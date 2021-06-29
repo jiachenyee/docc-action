@@ -1,0 +1,21 @@
+# action.yml
+name: 'DocC Action'
+description: 'Build DocC projects using xcodebuild'
+inputs:
+  scheme-name:  # id of input
+    description: 'Scheme name (generally the project name)'
+    required: true
+    default: 'swiftinsg'
+  web-public:  # id of input
+    description: 'public folder directory'
+    required: true
+    default: 'public'
+  
+outputs:
+  time: # id of output
+    description: 'The time we greeted you'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.who-to-greet }}
